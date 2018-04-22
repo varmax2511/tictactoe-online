@@ -1,0 +1,58 @@
+=================
+TICTACTOE
+===============
+
+This project aims at developing an application to play a game of TicTacToe.
+
+Objective:
+------------
+1. A playable UI
+2. Allowing 2 player game
+3. Leader board
+
+Future
+1. Player AI (Future)
+2. Browser UI
+
+Rules:
+1. A board consists of ideally 9 cells distributed in  3 rows and 3 columns
+2. Each player has one piece, either an X or an O
+3. Each player gets one cell to fill in one turn.
+4. No edits are permissible.
+5. The first player to cover a row, column or a diagonal wins.
+6. If no player is able to achieve pt 5, its a stalemate
+
+#########
+Design
+#########
+
+Board
+-------
+1. A board will contain cells. 
+2. Board may have parameters for customization like skin.
+
+Cell
+-----
+1. Each cell is either occupied or unoccupied.
+2. Each cell occupied cell will also hold the piece it has.
+3. Each cell may have a style.
+4. Each cell may be editable or not.
+ 
+Piece
+------
+1. Each piece will have a style.
+2. Each piece will have an associated player.  
+ 
+Player
+------
+1. Player will have a piece linked
+2. Player may have name
+3. Player will have score
+
+Leader Board
+-------------
+Maintain score over subsequent games
+
+
+ 
+ 

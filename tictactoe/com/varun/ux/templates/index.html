@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>TicTacToe</title>
+<style>
+body {
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	border: 3px solid #73AD21;
+}
+
+.center {
+	text-align: center;
+	border: 3px solid green;
+}
+</style>
+<script>
+function close_window(){
+    if(confirm("Are you sure, you want to exit")){
+       close();
+    }
+}   
+</script>
+</head>
+<body>
+	<div class="center">
+		<h2>TicTacToe</h2>
+		<h4>Menu</h4>
+		<table align="center">
+			<tr>
+				<td><a href="/login">Start Game</a></td>
+			</tr>
+			<tr>
+				<td><a href="#" onclick="close_window(); return false;">Exit Game</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
