@@ -15,6 +15,7 @@ from flask_socketio import SocketIO
 from com.varun.game.Game import Game
 from com.varun.game.PlayerData import PlayerData
 
+# configuration
 game_server = Flask(__name__)
 game_server.session_key = str(os.urandom(24))
 game_server.config['SECRET_KEY'] = 'secret!'
