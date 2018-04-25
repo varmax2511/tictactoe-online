@@ -16,25 +16,57 @@ body {
 	border: 3px solid green;
 }
 </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-function close_window(){
-    if(confirm("Are you sure, you want to exit")){
-       close();
-    }
-}   
+	function close_window() {
+		if (confirm("Are you sure, you want to exit")) {
+			close();
+		}
+	}
+
+	function display_action() {
+		var url_string = window.location.href
+		var url = new URL(url_string);
+		var mode = url.searchParams.get("mode");
+
+		if (mode == "single-player") {
+			$("#singleplayer").show();
+			$("#multiplayer").hide();
+		} else {
+			$("#singleplayer").hide();
+			$("#multiplayer").show();
+		}
+
+	}
 </script>
 </head>
-<body>
-	<form action="/start" method="post" class="center">
-		<table>
-			<tr>
-				<td>Username</td>
-				<td><input type="text" name="user"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Submit"></td>
-			</tr>
-		</table>
-	</form>
+<body onload="display_action()">
+	<div id="singleplayer">
+		<form action="/startsp" method="post" class="center">
+			<table>
+				<tr>
+					<td>Player name:</td>
+					<td><input type="text" name="user"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="multiplayer">
+		<form action="/startmp" method="post" class="center">
+			<table>
+				<tr>
+					<td>Player name:</td>
+					<td><input type="text" name="user"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

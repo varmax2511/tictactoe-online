@@ -94,3 +94,15 @@ class Board(object):
             '''
         return False
 
+    def get_empty_cells(self):
+        output = []
+        
+        for i in range(len(self.cells)):
+            for j in range(len(self.cells[i])):
+                if(self.cells[i][j].isoccupied()):
+                    continue
+                output.append(self.cells[i][j])
+        return output
+        
+    
+    

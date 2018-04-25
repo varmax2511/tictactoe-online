@@ -38,8 +38,10 @@ table.center {
 <body>
 	<div class="center">
 		<h2>TicTacToe</h2>
+		<h4>Single-Player</h4>
+		<hr/>
 		<h4>
-			Current Player:<label id="lbltipAddedComment"></label>
+			Current Player:<label id="lbltipAddedComment" onchange="lblChange()"></label>
 		</h4>
 		<script>
 			$.get("/currentplayer", function(data) {
@@ -80,17 +82,23 @@ table.center {
 							alert($("#lbltipAddedComment").text() + ":" + data);
 								
 						    // exit game
+						    $.get("/exitgame");
 							window.location.replace("/");
 						});
 							
 							
-    			// reload current player
-				$.get("/currentplayer", function(data) {
+    		  	  // reload current player
+			  	  $.get("/currentplayer", function(data) {
 						$("#lbltipAddedComment").text(data);
+						// make AI player move  
+				        if(data === "AI"){
+				           $.get("/movesp");
+				        }
 				  });
+				  
                 });
 			
-			
+			    
 				$('td').click(
 						function() {
 							var col = $(this).parent().children()
@@ -99,11 +107,15 @@ table.center {
 									.index($(this).parent());
                              
                             // make move 
-							$.get("/move?x=" + row + "&y=" + col);
-							
+							$.get("/movesp?x=" + row + "&y=" + col);
 							
 							
 						});
+				
+				$(window).bind("beforeunload", function() {
+				    $.get("/exitgame")
+				});
+				
 			</script>
 		</table>
 	</div>

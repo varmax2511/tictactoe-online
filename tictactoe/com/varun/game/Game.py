@@ -3,6 +3,8 @@ Created on Apr 19, 2018
 
 @author: varunjai
 '''
+from test.test_funcattrs import empty_cell
+
 from com.varun.board.Board import Board
 from com.varun.board.Piece import Piece
 from com.varun.game.PlayerData import PlayerData
@@ -46,3 +48,6 @@ class Game(object):
     def get_current_player(self):
         return self.players[self.current_player_idx]
 
+    def get_empty_cells(self):
+        return self.board.get_empty_cells()
+        

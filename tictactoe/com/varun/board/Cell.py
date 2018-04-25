@@ -25,3 +25,9 @@ class Cell(object):
     '''
     def getPiece(self):    
         return self.piece
+
+    def xval(self):
+        return self.x
+    
+    def yval(self):
+        return self.y
